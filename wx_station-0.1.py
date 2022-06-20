@@ -16,7 +16,7 @@ my_call = get_callsign()
 print(my_call + ' WX Station Active...')
 print()
 
-trigger = 'RAPPORT?'
+trigger = 'REPORT?'
 
 last=time.time()
 while(True):
