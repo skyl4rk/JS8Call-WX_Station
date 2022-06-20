@@ -1,0 +1,28 @@
+Installation on a Raspberry Pi
+
+Download and unzip the folder from github
+
+In the newly created folder, there should be wx_station-0.1.py and js8net.py.
+
+Start JS8Call
+
+Start wx_station-0.1.py. I recommend running the script in Thonny. 
+
+You should see in Thonny:
+
+Connecting to JS8Call...
+Connected.
+F1ZXO WX Station Active...
+
+In the script, you will find
+
+trigger = 'RAPPORT?'
+You may change this trigger if you wish.
+
+From another JS8Call station, send a directed message to the F1ZXO station with the trigger word.
+
+Example:
+
+F1ZXO RAPPORT?
+
+F1ZXO should respond by sending a message to the inbox of the requesting station.
