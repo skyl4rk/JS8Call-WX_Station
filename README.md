@@ -9,7 +9,7 @@ This script is to be installed at a weather station with JS8Call
 The script will be run at the same time JS8Call is running.
 
 ### Dependencies
-* python-requests
+* python-requests library
 * js8call
 
 ## Installation with systemd service
