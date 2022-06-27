@@ -56,7 +56,7 @@ while(True):
                     if split_message[i] == trigger:
                         request_call_raw = split_message[0]
                         request_call = request_call_raw.strip(':')
-                        report_file = open('/home/pi/Documents/js8call_r3/wx_report.txt')
+                        report_file = open('/opt/js8call-wx_station/wx_report.txt')
                         report_msg = report_file.read()
                         print(request_call + ' ' + report_msg)
                         send_inbox_message(request_call, report_msg)
