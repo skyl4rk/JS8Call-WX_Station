@@ -4,9 +4,24 @@ import json
 from js8net import *
 import re
 import requests
+from optparse import OptionParser
 
-js8host="localhost"
-js8port=2442
+parser = OptionParser()
+parser.add_option("-r", "--remote", action="store", dest="ADDR", type="string",
+                  help="set a remote host address")
+parser.set_defaults(ADDR="localhost")
+parser.add_option("-p", "--port",
+                  action="store", dest="PORT", default=True, type="int",
+                  help="set JS8 port (default 2442)")
+parser.set_defaults(PORT=2442)
+parser.add_option("-t", "--trigger", action="store", dest="trig", type="string",
+                  help="set the trigger expression (default REPORT?)")
+parser.set_defaults(trig='REPORT?')
+
+(options, args) = parser.parse_args()
+
+js8host=options.ADDR
+js8port=options.PORT
 
 print("Connecting to JS8Call...")
 start_net(js8host,js8port)
@@ -16,7 +31,7 @@ my_call = get_callsign()
 print(my_call + ' WX Station Active...')
 print()
 
-trigger = 'REPORT?'
+trigger = options.trig
 
 last=time.time()
 while(True):
@@ -39,6 +54,6 @@ while(True):
 #                    print(split_message[i])
 #                    try:
                     if split_message[i] == trigger:
-                        message = open('/home/pi/Documents/js8call_r3/wx_report.txt')
+                        message = open('/opt/js8call-wx_station/wx_report.txt')
                         send_inbox_message(message)
                         
