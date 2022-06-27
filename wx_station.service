@@ -3,7 +3,7 @@ Description=When requested, sends a brief weather forecast over amateur digital 
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/python3 /opt/js8call-wx_station/wx_station-0.3.py
+ExecStart=/usr/bin/python3 /opt/js8call-wx_station/wx_station.py
 Restart=on-failure
 
 [Install]
